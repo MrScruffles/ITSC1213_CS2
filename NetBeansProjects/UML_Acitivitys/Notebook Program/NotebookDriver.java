@@ -18,7 +18,12 @@ public class NotebookDriver {
 
         List<Note> notes = myNotebook.getNotes();
         for (Note aNote : notes) {
+            System.out.println("=====================================");
             System.out.println("Note title: " + aNote.getTitle());
+            System.out.println("Note category: " + aNote.getCategory());
+            System.out.println("Note body: " + aNote.getBody());
+            System.out.println("Note date: " + aNote.getDate());
+            System.out.println("=====================================");
         }
     }
 }
