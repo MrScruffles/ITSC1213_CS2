@@ -5,14 +5,14 @@ public class Notebook {
     private List<Note> notes;
 
     public Notebook() {
-        notes = new ArrayList<>();
-    }
-
-    public List<Note> getNotes() {
-        return notes;
+        this.notes = new ArrayList<>();
     }
 
     public void addNote(Note note) {
-        notes.add(note);
+        this.notes.add(note);
+    }
+
+    public List<Note> getNotes() {
+        return this.notes;
     }
 }
