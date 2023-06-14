@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"pkg1213debugginglab","l":"Circle"},{"p":"<Unnamed>","l":"DebugExample"},{"p":"pkg1213debugginglab","l":"RectangleTest"}];updateSearchResults();
