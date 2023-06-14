@@ -1,4 +1,3 @@
-package NetBeansProjects.UML_Acitivitys;
 import java.util.*;
 /**
  *
