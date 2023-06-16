@@ -34,6 +34,7 @@ Let's dive in and conquer ITSC1213 together!
 
 This repository is licensed under the [CC BY-ND 4.0 License](LICENSE.md).
 
-Just don't plagariase and you'll be fine.
+Just don't plagariase my work and you'll be fine.
+**(yoinking my work and calling it yours)**
 
 ---
