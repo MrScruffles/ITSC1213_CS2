@@ -26,9 +26,7 @@ This repository is a dedicated space for storing and showcasing the exciting lab
 
 ## Get Involved!
 
-ITSC1213_CS2 is more than just a repository; it's a vibrant community of learners passionate about computer science. Join us on this incredible learning journey, unleash your creativity, and embrace the exciting challenges that lie ahead.
-
-Let's dive in and conquer ITSC1213 together!
+This is just a place for me to store my code so I can get it off my computer, + github desktop is pretty cool.
 
 ## License
 
