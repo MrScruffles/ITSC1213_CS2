@@ -107,6 +107,11 @@ public class Professor extends Person {
         return false;
     }
 
+    @Override
+    public String toString() {
+        return "Professor: " + getFirstName() + " " + getLastName() + ", ID: " + getId();
+    }
+
     /**
      * Displays the professor's information, including the inherited information from the Person class,
      * as well as the department, salary, and list of advisees.
@@ -149,3 +154,4 @@ public class Professor extends Person {
         }
     }
 }
+

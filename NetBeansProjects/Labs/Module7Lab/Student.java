@@ -177,6 +177,11 @@ public class Student extends Person {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Student: " + getFirstName() + " " + getLastName() + ", ID: " + getId();
+    }
+
     /**
      * The main method is used to test the functionality of the Student class.
      */
@@ -209,6 +214,17 @@ public class Student extends Person {
         for (Student student : myAdvisees) {
             System.out.println(student.getFirstName() + " " + student.getLastName());
         }
+        
+        ArrayList<Person> personList = new ArrayList<>();
+        personList.add(new Professor("John", "Doe", 300, "CS", 80000));
+        personList.add(new Student("Jane", "Smith", 800555555, "Biology", 3.2, 85));
+
+        for (Person person : personList) {
+            System.out.println(person.toString());
+        }
+
+
     }
 
 }
+

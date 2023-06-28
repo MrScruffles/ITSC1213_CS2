@@ -58,6 +58,23 @@ public class Person {
         return this.id;
     }
 
+    @Override
+    public String toString() {
+        return "Person: " + getFirstName() + " " + getLastName() + ", ID: " + getId();
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        }
+        if (other == null || getClass() != other.getClass()) {
+            return false;
+        }
+        Person person = (Person) other;
+        return id == person.id;
+    }
+
     /**
      * Displays the person's information, including the first name, last name, and ID.
      */
