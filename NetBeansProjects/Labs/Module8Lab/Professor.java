@@ -131,52 +131,80 @@ public class Professor extends Person {
     /**
      * The main method is used to test the functionality of the Professor class.
      */
-    // public static void main(String[] args) {
-    // Student s2 = new Student("Kathrine", "Johnson", 900, "CS", 4.0, 100);
-    // Student s3 = new Student("Roy", "Clay", 901, "Biology", 3.2, 85);
-    // Student s4 = new Student("Kimberly", "Bryant", 902, "EE", 3.0, 80);
-    // Professor prof1 = new Professor("Mary", "Castro", 300, "CS", 80000);
-    // prof1.addAdvisee(s2);
-    // prof1.addAdvisee(s3);
-    // prof1.addAdvisee(s4);
-    // prof1.display();
+    public static void showProfile(Person p, int id) {
+        if (p.getId() == id) {
+            p.display();
+        }
+    }
 
-    // if (prof1.removeAdvisee(902)) {
-    // System.out.println("The advisee has been removed");
-    // } else {
-    // System.out.println("This student is not an advisee of Professor "
-    // + prof1.getFirstName() + " " + prof1.getLastName());
-    // }
+    public static void main(String[] args) {
+        ArrayList<Person> contactList = new ArrayList<>();
 
-    // ArrayList<Student> myAdvisees = prof1.getAdvisees();
-    // System.out.println("Professor " + prof1.getFirstName() + " " +
-    // prof1.getLastName() + " advisees:");
-    // for (Student s : myAdvisees) {
-    // System.out.println(s.getFirstName() + " " + s.getLastName());
-    // }
-    // }
-    // }
+        Student s1 = new Student("John", "Doe", 123, "CS", 3.5, 75);
+        Student s2 = new Student("Kathrine", "Johnson", 900, "CS", 4.0, 100);
+        Student s3 = new Student("Roy", "Clay", 901, "Biology", 3.2, 85);
+        Student s4 = new Student("Kimberly", "Bryant", 902, "EE", 3.0, 80);
+        Professor prof1 = new Professor("Mary", "Castro", 300, "CS", 60000);
 
-    public class Main {
-        public static void main(String[] args) {
-            ArrayList<Person> contactList = new ArrayList<>();
+        contactList.add(s1);
+        contactList.add(s2);
+        contactList.add(s3);
+        contactList.add(s4);
+        contactList.add(prof1);
 
-            Student s1 = new Student("John", "Doe", 123, "CS", 3.5, 75);
-            Student s2 = new Student("Kathrine", "Johnson", 900, "CS", 4.0, 100);
-            Student s3 = new Student("Roy", "Clay", 901, "Biology", 3.2, 85);
-            Student s4 = new Student("Kimberly", "Bryant", 902, "EE", 3.0, 80);
-            Professor prof1 = new Professor("Mary", "Castro", 300, "CS", 60000);
+        System.out.println("*** Part B ***");
+        for (Person person : contactList) {
+            showProfile(person, 900);
+        }
+        System.out.println("----------------");
 
-            contactList.add(s1);
-            contactList.add(s2);
-            contactList.add(s3);
-            contactList.add(s4);
-            contactList.add(prof1);
-
-            for (Person p : contactList) {
-                p.display();
-                System.out.println("----------------");
+            // Eligible for Scholarship
+    System.out.println("*** Part C ***");
+    System.out.println("----------------");
+    System.out.println("Students eligible for scholarship:");
+    for (Person person : contactList) {
+        if (person instanceof Student) {
+            Student student = (Student) person;
+            if (student.getGpa() > 3.5) {
+                System.out.println(student.getFirstName() + " " + student.getLastName());
             }
         }
     }
+
+    System.out.println("----------------");
+    // Professors in CS Department
+    System.out.println("Professors in the CS Department:");
+    for (Person person : contactList) {
+        if (person instanceof Professor) {
+            Professor professor = (Professor) person;
+            if (professor.getDepartment().equals("CS")) {
+                System.out.println(professor.getFirstName() + " " + professor.getLastName());
+               }
+          }
+        }
+    }
 }
+
+//     public class Main {
+//         public static void main(String[] args) {
+//             ArrayList<Person> contactList = new ArrayList<>();
+
+//             Student s1 = new Student("John", "Doe", 123, "CS", 3.5, 75);
+//             Student s2 = new Student("Kathrine", "Johnson", 900, "CS", 4.0, 100);
+//             Student s3 = new Student("Roy", "Clay", 901, "Biology", 3.2, 85);
+//             Student s4 = new Student("Kimberly", "Bryant", 902, "EE", 3.0, 80);
+//             Professor prof1 = new Professor("Mary", "Castro", 300, "CS", 60000);
+
+//             contactList.add(s1);
+//             contactList.add(s2);
+//             contactList.add(s3);
+//             contactList.add(s4);
+//             contactList.add(prof1);
+
+//             for (Person p : contactList) {
+//                 p.display();
+//                 System.out.println("----------------");
+//             }
+//         }
+//     }
+// }
