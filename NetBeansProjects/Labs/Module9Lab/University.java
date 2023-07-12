@@ -2,6 +2,12 @@ import java.util.ArrayList;
 
 public class University implements UniversitySpecification {
 
+    public University(String name) {
+        this.name = name;
+        this.personnel = new ArrayList<>();
+    }
+
+    private String name;
     private ArrayList<Person> personnel;
 
     @Override
@@ -39,5 +45,9 @@ public class University implements UniversitySpecification {
     @Override
     public void newProfessor(Professor p) {
         personnel.add(p);
+    }
+
+    public ArrayList<Person> getPersonnel() {
+        return personnel;
     }
 }
