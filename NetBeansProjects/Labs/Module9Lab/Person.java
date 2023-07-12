@@ -1,4 +1,4 @@
-public class Person {
+public abstract class Person {
 
     private String firstName;
     private String lastName;
@@ -38,10 +38,7 @@ public class Person {
         return id;
     }
 
-    public void display() {
-        System.out.println("Name: " + this.firstName + " "+ this.lastName);
-        System.out.println("ID: " + this.id);
-    }
+    public abstract void display();
     
     @Override
     public boolean equals(Object other){

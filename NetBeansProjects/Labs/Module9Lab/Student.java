@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Student extends Person {
+public class Student extends Person implements Comparable<Student> {
 
     private String major;
     private double gpa;
@@ -91,6 +91,17 @@ public class Student extends Person {
 
     @Override public String toString() {
         return "Student - " + this.getFirstName() + " " + this.getLastName();
+    }
+
+    @Override
+    public int compareTo(Student other) {
+        if (this.gpa < other.gpa) {
+            return -1;
+        } else if (this.gpa > other.gpa) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
 }
