@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public interface UniversitySpecification {
 
@@ -13,7 +15,7 @@ public interface UniversitySpecification {
      *
      * @return a list of students
      */
-    public ArrayList<Student> getStudents();
+public List<Student> getStudents();
 
     /**
      * getProfessors get professors from personnel list

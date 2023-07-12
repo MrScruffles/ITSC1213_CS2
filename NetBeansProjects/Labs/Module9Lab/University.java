@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class University implements UniversitySpecification {
 
@@ -10,13 +11,13 @@ public class University implements UniversitySpecification {
     private String name;
     private ArrayList<Person> personnel;
 
-    @Override
+    // @Override
     public void setUp(ArrayList<Person> personnel) {
         this.personnel = personnel;
     }
 
-    @Override
-    public ArrayList<Student> getStudents() {
+@Override
+public List<Student> getStudents() {
         ArrayList<Student> students = new ArrayList<>();
         for (Person person : personnel) {
             if (person instanceof Student) {
