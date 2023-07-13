@@ -1,7 +1,7 @@
 
 /**
  *
- * @author Adam Whaley and
+ * @author Ash
  */
  
 public class ExoticPet {
