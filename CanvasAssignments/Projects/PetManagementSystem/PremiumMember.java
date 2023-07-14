@@ -2,7 +2,7 @@
 import java.util.ArrayList;
 /**
  *
- * @author Adam Whaley and
+ * @author Ash
  */
 
 public class PremiumMember {
