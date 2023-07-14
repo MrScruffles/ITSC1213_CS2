@@ -1,6 +1,6 @@
 /**
  *
- * @author Ash
+ * @author Adam Whaley and
  */
 
 import java.util. *;

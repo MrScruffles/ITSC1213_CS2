@@ -1,6 +1,6 @@
 /**
  *
- * @author Ash
+ * @author Adam Whaley and
  */
 public class Cat {
     

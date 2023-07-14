@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Ash
+ * @author Adam Whaley and
  */
 public class Member {
     
@@ -91,7 +91,7 @@ import java.util. *;
 
 /**
  *
- * @author Ash 
+ * @author Adam Whaley and 
  */
 
 
@@ -311,7 +311,7 @@ Code:
 
 /**
  *
- * @author Ash
+ * @author Adam Whaley and
  */
 public class Dog {
     
@@ -405,7 +405,7 @@ Code:
 
 /**
  *
- * @author Ash
+ * @author Adam Whaley and
  */
  
 public class ExoticPet {
@@ -496,7 +496,7 @@ Code:
 
 /**
  *
- * @author Ash
+ * @author Adam Whaley and
  */
 public class Cat {
     
@@ -587,7 +587,7 @@ Code:
 
 /**
  *
- * @author Ash
+ * @author Adam Whaley and
  */
 
 import java.util. *;
@@ -753,7 +753,7 @@ Code:
 import java.util.ArrayList;
 /**
  *
- * @author Ash
+ * @author Adam Whaley and
  */
 
 public class PremiumMember {

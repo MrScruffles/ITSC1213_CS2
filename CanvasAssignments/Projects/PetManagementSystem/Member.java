@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Ash
+ * @author Adam Whaley and
  */
 public class Member {
     
