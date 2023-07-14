@@ -1,57 +1,78 @@
-public class Pet {
-    private String name;
-    private String type;
+import java.util.*;
 
-    public Pet(String n, String t) {
-        name = n;
-        type = t;
+/**
+ *
+ * @author Ash
+ */
+abstract public class Pet implements Comparable<Pet> {
+    protected String name;
+    protected String sex;
+    protected int age;
+    protected double weight;
+    protected int ID;
+    protected double price;
+    
+    public Pet(String name, String sex, int age, double weight, int ID, double price) {
+        this.name = name;
+        this.sex = sex;
+        this.age = age;
+        this.weight = weight;
+        this.ID = ID;
+        this.price = price;
+    }
+    
+    // ... getters and setters ...
+    
+    public int getID() {
+        return ID;
     }
 
-    public String getType() {
-        return type;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+    
     public String getName() {
         return name;
     }
-
-    public void speak() {
-        System.out.println("grr!");
+    
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public static void main(String[] args) {
-        Pet p = new Pet("Sammy", "hamster");
-        System.out.println(p.getType());
-        p.speak();
-
-        Dog d = new Dog("Fido");
-        System.out.println(d.getType());
-        d.speak();
-
-        Cat c = new Cat("Fluffy");
-        System.out.println(c.getType());
-        c.speak();
-    }
-}
-
-class Dog extends Pet {
-    public Dog(String name) {
-        super(name, "dog");
+    public String getSex() {
+        return sex;
     }
 
-    @Override
-    public void speak() {
-        System.out.println("Woof!");
+    public void setSex(String sex) {
+        this.sex = sex;
     }
-}
 
-class Cat extends Pet {
-    public Cat(String name) {
-        super(name, "cat");
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
 
     @Override
-    public void speak() {
-        System.out.println("Meow!");
+    public int compareTo(Pet otherPet) {
+        return Double.compare(this.price, otherPet.price);
     }
 }
