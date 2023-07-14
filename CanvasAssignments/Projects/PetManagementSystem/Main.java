@@ -2,7 +2,7 @@ import java.util. *;
 
 /**
  *
- * @author Ash
+ * @author Ash 
  */
 
 
@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scnr = new Scanner(System. in);
-        PetStore ps = new PetStore("Ash's Pet Store");
+        PetStore ps = new PetStore("Insert Petstore name here");
         System.out.println("**** Welcome to " + ps.getStoreName() + "****");
         while (true) {
 
