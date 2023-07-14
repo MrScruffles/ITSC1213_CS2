@@ -52,8 +52,7 @@ public class Main {
     private static void purchase(PetStore petStore, Scanner scnr, ArrayList<Dog> cart) {
         System.out.println("What type of pet are you here to purchase?");
         System.out.println("\t1. Dogs");
-        System.out.println("\t2. Cats"); 
-        System.out.println("\t3. Exotic Pets");
+        //System.out.println("\t2. Cats"); System.out.println("\t3. Exotic Pets");
 
         int petTypeChoice = scnr.nextInt();
 
@@ -101,41 +100,7 @@ public class Main {
             } else {
                 System.out.println("Sorry! we currently have no dogs available.");
             }
-        } else if (petTypeChoice == 2) {
-            ArrayList<Cat> inventory = petStore.getAvailableCats();
-            if (!inventory.isEmpty()) {
-                System.out.println("Which of the following cats would you like to purchase?");
 
-                for (Cat pet : inventory) {
-                    System.out.println("\t" + itemNum + ". $" + pet.getPrice() + " - " + pet.getBreed() + "(" + pet.getName() + ")");
-                    itemNum++;
-                }
-                // Get user selection for the product to add to the cart
-                int choice = scnr.nextInt();
-                if (choice <= inventory.size()) {
-                    cart.add(inventory.get(choice - 1));
-                    // Update inventory for this item
-                    petStore.removePet("cat", choice - 1);
-                    // Cart summary
-                    System.out.println("You have " + cart.size() + " items in your cart. Are you done shopping?");
-                    System.out.println("\t1. Yes");
-                    System.out.println("\t2. No");
-
-                    int doneShopping = scnr.nextInt();
-                    if (doneShopping == 1) {
-                        checkout(petStore, scnr, cart);
-                    } else if (doneShopping == 2) {
-                        purchase(petStore, scnr, cart); // Recursively call purchase(...) until done
-                    } else {
-                        System.out.println("Invalid Choice.");
-                    }
-                } else {
-                    System.out.println("Please enter a valid product number. Try again");
-                    purchase(petStore, scnr, cart);
-                }
-            } else {
-                System.out.println("Sorry! We currently have no cats available.");
-            }
         }
     }
 
