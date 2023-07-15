@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class PetStore implements PetStoreSpecification {
-
     private String storeName;
     private ArrayList<Pet> availablePets;
 
