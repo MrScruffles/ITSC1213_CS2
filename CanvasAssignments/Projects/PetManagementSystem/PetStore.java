@@ -44,8 +44,7 @@ public class PetStore implements PetStoreSpecification {
     }
 
     public ArrayList<PremiumMember> getPremiumMemberList() {
-        return premiumMembers;
-    }
+        return new ArrayList<>(premiumMembers);    }
 
     public void addNewMember(Member member) {
         members.add(member);
