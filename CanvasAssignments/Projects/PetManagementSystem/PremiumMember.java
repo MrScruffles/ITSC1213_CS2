@@ -5,7 +5,8 @@ import java.util.ArrayList;
  * @author Ash
  */
 
-public class PremiumMember {
+ public class PremiumMember extends Member {
+    
     
     private String name;
     private int memberID;
@@ -17,9 +18,7 @@ public class PremiumMember {
     private double amountSpent = 0;
 
     public PremiumMember(String name, int memberID, boolean newsletterSubscribed, boolean duesPaid) {
-        this.name = name;
-        this.memberID = memberID;
-        this.newsletterSubscribed = newsletterSubscribed;
+        super(name, memberID, newsletterSubscribed);  // call the superclass constructor
         this.duesPaid = duesPaid;
     }
 

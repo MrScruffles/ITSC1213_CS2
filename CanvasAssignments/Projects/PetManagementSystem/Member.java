@@ -75,4 +75,19 @@ public class Member {
      public void addExoticPet(ExoticPet exoticPet) {
          exoticPetsOwned.add(exoticPet);
      }
+
+     public void displayPets() {
+        System.out.println("Dogs owned:");
+        for (Dog dog : dogsOwned) {
+            System.out.println("\t" + dog.getName());
+        }
+        System.out.println("Cats owned:");
+        for (Cat cat : catsOwned) {
+            System.out.println("\t" + cat.getName());
+        }
+        System.out.println("Exotic pets owned:");
+        for (ExoticPet exoticPet : exoticPetsOwned) {
+            System.out.println("\t" + exoticPet.getName());
+        }
+    }
 }

@@ -8,7 +8,7 @@ public class Cat extends Pet {
     public Cat(String name, double price, String breed) {
         super(name, price);
         this.breed = breed;
-    }
+    }    
 
     public String getBreed() {
         return breed;
