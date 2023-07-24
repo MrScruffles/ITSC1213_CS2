@@ -3,12 +3,20 @@ package NetBeansProjects.Labs.Module11Lab;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
+/**
+ * The GPACalculator class calculates a student's GPA based on letter grades and credit hours.
+ */
 public class GPACalculator {
 
+    /**
+     * Main method to execute the GPA calculator.
+     * 
+     * @param args Command-line arguments (not used in this program).
+     */
     public static void main(String[] args) {
         Scanner scnr = new Scanner(System.in);
-        char letterGrade;    // User defined letter grade 
-        int creditHours;     // User defined number of credit hours
+        char letterGrade;    // User-defined letter grade 
+        int creditHours;     // User-defined number of credit hours
         char quitCmd = 'a';  // Indicates quit/continue
 
         int qualityPoints = 0;
@@ -42,7 +50,7 @@ public class GPACalculator {
                 // Consume the invalid token
                 scnr.nextLine();
             } catch (Exception excpt) {
-                // Prints the error message passed by throw statement
+                // Prints the error message passed by the throw statement
                 System.out.println(excpt.getMessage());
                 System.out.println("Cannot compute GPA");
             }
@@ -62,6 +70,12 @@ public class GPACalculator {
         }
     }
 
+    /**
+     * Converts a letter grade to a corresponding grade point value.
+     * 
+     * @param letterGrade The letter grade to be converted (A, B, C, D, F).
+     * @return The grade point value (4 for A, 3 for B, 2 for C, 1 for D, 0 for F, -1 for unknown).
+     */
     private static int getLetterGradeValue(char letterGrade) {
         if (letterGrade == 'a' || letterGrade == 'A') {
             return 4;
@@ -82,11 +96,18 @@ public class GPACalculator {
         }
     }
 
-    private static double computeGPA(int qualityPoints, int creditHours) {
+    /**
+     * Calculates the GPA by dividing the total quality points by the total credit hours.
+     * 
+     * @param qualityPoints The total quality points earned.
+     * @param creditHours The total credit hours attempted.
+     * @return The GPA calculated as the quotient of quality points and credit hours.
+     * @throws ArithmeticException if creditHours is zero, causing division by zero.
+     */
+    private static double computeGPA(int qualityPoints, int creditHours) throws ArithmeticException {
         if (creditHours == 0) {
             throw new ArithmeticException("Division by zero");
         }
         return ((double) qualityPoints) / creditHours;
     }
-    
 }
