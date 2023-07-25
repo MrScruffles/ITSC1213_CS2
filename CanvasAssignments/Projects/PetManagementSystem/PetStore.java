@@ -160,7 +160,7 @@ public class PetStore implements PetStoreSpecification {
     public void adoptionDrive(ArrayList<Object> pets) {
         for (Object pet : pets) {
             if (pet instanceof Pet) {
-                removePet((Pet) pet);
+                addPet((Pet) pet);
                 System.out.println("Congratulations on adopting " + pet.toString() + "!");
             } else {
                 System.out.println("Invalid pet for adoption.");
