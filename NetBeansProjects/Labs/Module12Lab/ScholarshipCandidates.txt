@@ -1,0 +1,5 @@
+Ineligible: Kimberly Bryant, Major: Electrical Engineering, GPA: 3.0
+Middle: Roy Clay, Major: Biology, GPA: 3.2
+Middle: Grace Maxeem, Major: Psychology, GPA: 3.4
+Top: Xavier Cato, Major: CS, GPA: 3.5
+Top: Kathrine Johnson, Major: CS, GPA: 4.0
