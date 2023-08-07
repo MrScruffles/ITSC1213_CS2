@@ -22,7 +22,7 @@ public class FastFoodKitchen {
 
     
     FastFoodKitchen() {
-        try {
+        try {                   
             BufferedReader reader = new BufferedReader(new FileReader("./CanvasAssignments/Projects/Project_2/burgerOrders.csv"));
             String line = reader.readLine();  // Read the header line
             while ((line = reader.readLine()) != null) {
