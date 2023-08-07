@@ -161,14 +161,29 @@ public class BurgerOrder {
         return numHamburgers + numCheeseburgers + numVeggieburgers;
     }
 
+     /**
+     * Get the number of burgers in an order
+     *
+     * @return the number of burgers in an order
+     */
     public int getNumHamburgers() {
         return numHamburgers;
     }
 
+         /**
+     * Get the toGo status of an order
+     *
+     * @return the toGo status of an order
+     */
     public boolean isToGo() {
         return orderToGo;
     }
 
+    /**
+     * Converts to a string
+     *
+     * @return Converts to a string
+     */
     public String toString() {
         return "BurgerOrder{" + "numHamburgers=" + numHamburgers + ", numCheeseburgers=" + numCheeseburgers
                 + ", numVeggieburgers=" + numVeggieburgers + ", numSodas=" + numSodas + ", orderToGo=" + orderToGo
