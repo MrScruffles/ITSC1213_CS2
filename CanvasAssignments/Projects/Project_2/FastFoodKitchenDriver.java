@@ -1,5 +1,6 @@
 package CanvasAssignments.Projects.Project_2;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -29,17 +30,17 @@ public class FastFoodKitchenDriver {
                 System.out.println("\t 6. Cancel order");
                 System.out.println("\t 7. Exit");
 
-                int num = sc.nextInt();
+                int num = getIntInput(sc);
                 switch (num) {
                     case 1:
                         System.out.println("How many hamburgers do you want?");
-                        int ham = sc.nextInt();
+                        int ham = getIntInput(sc);
                         System.out.println("How many cheeseburgers do you want?");
-                        int cheese = sc.nextInt();
+                        int cheese = getIntInput(sc);
                         System.out.println("How many veggieburgers do you want?");
-                        int veggie = sc.nextInt();
+                        int veggie = getIntInput(sc);
                         System.out.println("How many sodas do you want?");
-                        int sodas = sc.nextInt();
+                        int sodas = getIntInput(sc);
                         System.out.println("Is your order to go? (Y/N)");
                         char letter = sc.next().charAt(0);
                         boolean TOGO = false;
@@ -64,13 +65,13 @@ public class FastFoodKitchenDriver {
                         break;
                     case 4:
                         System.out.println("Enter order number to complete?");
-                        int order = sc.nextInt();
+                        int order = getIntInput(sc);
                         kitchen.completeSpecificOrder(order);
                         System.out.println("Your order is ready. Thank you!");
                         break;
                     case 5:
                         System.out.println("What is your order number?");
-                        order = sc.nextInt();
+                        order = getIntInput(sc);
                         ready = kitchen.isOrderDone(order);
                         if (ready) {
                             System.out.println("Sorry, no order with this number was found.");
@@ -81,7 +82,7 @@ public class FastFoodKitchenDriver {
                         break;
                     case 6:
                         System.out.println("What is your order number?");
-                        order = sc.nextInt();
+                        order = getIntInput(sc);
                         boolean cancel = kitchen.cancelOrder(order);
                         if (cancel) {
                             System.out.println("Your order has been successfully cancelled ");
@@ -90,21 +91,27 @@ public class FastFoodKitchenDriver {
                         }
                         System.out.println();
                         break;
-
                     case 7:
-                    //Part B
+                        //Part B
                         kitchen.generateEndOfDayReport();
                         kitchen.generateUpdatedOrdersFile();
                         System.exit(0);
                         break;
-
                     default:
                         System.out.println("Sorry, but you need to enter a 1, 2, 3, 4, 5, 6, or a 7");
-
                 } //end switch
-
             } //end while loop 
         }
     } // end main
-}// end class
 
+    private static int getIntInput(Scanner sc) {
+        while (true) {
+            try {
+                return sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a valid number!");
+                sc.next(); // Clear the invalid input
+            }
+        }
+    }
+}// end class

@@ -3,6 +3,7 @@ package CanvasAssignments.Projects.Project_2;
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -21,10 +22,11 @@ public class FastFoodKitchen {
     private static int nextOrderNum = 1;
 
     
+
     FastFoodKitchen() {
-        try {                   
+        try {
             BufferedReader reader = new BufferedReader(new FileReader("./CanvasAssignments/Projects/Project_2/burgerOrders.csv"));
-            String line = reader.readLine();  // Read the header line
+            String line = reader.readLine(); // Read the header line
             while ((line = reader.readLine()) != null) {
                 String[] orderDetails = line.split(",");
                 int ham = Integer.parseInt(orderDetails[1].trim());
@@ -36,8 +38,10 @@ public class FastFoodKitchen {
                 incrementNextOrderNum();
             }
             reader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("The specified file was not found.");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("An error occurred while reading the file: " + e.getMessage());
         }
     }
 
@@ -250,8 +254,10 @@ public class FastFoodKitchen {
             writer.write("Total Sodas Sold: " + totalSodas + "\n");
             
             writer.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("The specified file was not found.");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("An error occurred while writing to the file: " + e.getMessage());
         }
     }
 
@@ -271,8 +277,10 @@ public class FastFoodKitchen {
             }
             
             writer.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("The specified file was not found.");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("An error occurred while writing to the file: " + e.getMessage());
         }
     }
 }
