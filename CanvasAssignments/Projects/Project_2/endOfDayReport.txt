@@ -1,12 +1,22 @@
 End of Day Report
 ====================
 
+Order Log:
+====================
+Order ID: 2
+Hamburgers: 10
+Cheeseburgers: 10
+Veggieburgers: 3
+Sodas: 4
+Status: Completed
+
 Order ID: 1
 Hamburgers: 3
 Cheeseburgers: 15
 Veggieburgers: 4
 Sodas: 10
-Status: Pending
+Status: Canceled
+
 
 Order ID: 3
 Hamburgers: 1
@@ -15,11 +25,7 @@ Veggieburgers: 1
 Sodas: 2
 Status: Pending
 
-Total Hamburgers Sold: 4
-Total Cheeseburgers Sold: 16
-Total Veggieburgers Sold: 5
-Total Sodas Sold: 12
-
-
-fix this so all stuff Show
-fix the try catch on FastFoodKitchen
+Total Hamburgers Sold: 1
+Total Cheeseburgers Sold: 1
+Total Veggieburgers Sold: 1
+Total Sodas Sold: 2

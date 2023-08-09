@@ -1,27 +1,12 @@
 package CanvasAssignments.Projects.Project_2;
 
 import java.util.ArrayList;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-
-
-/**
- *
- * ITSC 1213 
- * University of North Carolina at Charlotte
- */
+import java.io.*;
 
 public class FastFoodKitchen {
-
-    private ArrayList<BurgerOrder> orderList = new ArrayList();
-
+    private ArrayList<BurgerOrder> orderList = new ArrayList<>();
+    private ArrayList<String> orderLog = new ArrayList<>(); // Logging mechanism
     private static int nextOrderNum = 1;
-
-    
 
     FastFoodKitchen() {
         try {
@@ -45,7 +30,6 @@ public class FastFoodKitchen {
         }
     }
 
-
     public static int getNextOrderNum() {
         return nextOrderNum;
     }
@@ -56,12 +40,14 @@ public class FastFoodKitchen {
 
     public int addOrder(int ham, int cheese, int veggie, int soda, boolean toGo) {
         int orderNum = getNextOrderNum();
-        orderList.add(new BurgerOrder(ham, cheese, veggie, soda, toGo, orderNum));
+        BurgerOrder newOrder = new BurgerOrder(ham, cheese, veggie, soda, toGo, orderNum);
+        orderList.add(newOrder);
         incrementNextOrderNum();
-        orderCallOut(orderList.get(orderList.size() - 1));
+        orderCallOut(newOrder);
+        orderLog.add(orderDetails(newOrder, "Pending")); // Logging detailed order as "Pending"
         return orderNum;
-
     }
+    
 
     public boolean isOrderDone(int orderID) {
         for (int i = 0; i < orderList.size(); i++) {
@@ -75,24 +61,34 @@ public class FastFoodKitchen {
     public boolean cancelOrder(int orderID) {
         for (int i = 0; i < orderList.size(); i++) {
             if (orderList.get(i).getOrderNum() == orderID) {
+                orderLog.add(orderDetails(orderList.get(i), "Canceled")); // Logging detailed order as "Canceled"
                 orderList.remove(i);
                 return true;
             }
         }
         return false;
     }
+    
+    // Helper method to format order details for logging
+    private String orderDetails(BurgerOrder order, String status) {
+    return "Order ID: " + order.getOrderNum() + "\n" +
+           "Hamburgers: " + order.getNumHamburgers() + "\n" +
+           "Cheeseburgers: " + order.getNumCheeseburgers() + "\n" +
+           "Veggieburgers: " + order.getNumVeggieburgers() + "\n" +
+           "Sodas: " + order.getNumSodas() + "\n" +
+           "Status: " + status + "\n";
+}
 
     public int getNumOrdersPending() {
         return orderList.size();
     }
 
     public boolean cancelLastOrder() {
-
-        if (!orderList.isEmpty()) { // same as  if (orderList.size() > 0) 
+        if (!orderList.isEmpty()) {
             orderList.remove(orderList.size() - 1);
+            orderLog.add("Last order canceled."); // Logging
             return true;
         }
-
         return false;
     }
 
@@ -109,29 +105,27 @@ public class FastFoodKitchen {
         if (order.getNumSodas() > 0) {
             System.out.println("You have " + order.getNumSodas() + " sodas");
         }
-
     }
 
     public void completeSpecificOrder(int orderID) {
         for (int i = 0; i < orderList.size(); i++) {
             if (orderList.get(i).getOrderNum() == orderID) {
                 System.out.println("Order number " + orderID + " is done!");
+                orderLog.add(orderDetails(orderList.get(i), "Completed")); // Logging detailed order as "Completed"
                 if (orderList.get(i).isOrderToGo()) {
                     orderCallOut(orderList.get(i));
                 }
                 orderList.remove(i);
             }
         }
-
     }
+    
 
     public void completeNextOrder() {
         int nextOrder = orderList.get(0).getOrderNum();
         completeSpecificOrder(nextOrder);
-
     }
 
-    // Part 2
     public ArrayList<BurgerOrder> getOrderList() {
         return orderList;
     }
@@ -145,40 +139,22 @@ public class FastFoodKitchen {
         return -1;
     }
 
-//    public int findOrderBin(int whatWeAreLookingFor) {
-//        int left = 0;
-//        int right = orderList.size() - 1;
-//        while (left <= right) {
-//            int middle = (left + right) / 2;
-//            if (whatWeAreLookingFor < orderList.get(middle).getOrderNum()) {
-//                right = middle - 1;
-//            } else if (whatWeAreLookingFor > orderList.get(middle).getOrderNum()) {
-//                left = middle + 1;
-//            } else {
-//                return middle;
-//            }
-//        }
-//        return -1;
-//    }
-
-  public int findOrderBin(int orderID){
+    public int findOrderBin(int orderID){
         int left = 0;
         int right = orderList.size()-1;
         while (left <= right){
             int middle = ((left + right)/2);
             if (orderID < orderList.get(middle).getOrderNum()){
                 right = middle-1;
-            }
-            else if(orderID > orderList.get(middle).getOrderNum()){
+            } else if(orderID > orderList.get(middle).getOrderNum()){
                 left = middle +1;
-            }
-            else{
+            } else {
                 return middle;
             }
         }
         return -1;
-        
     }
+
     public void selectionSort(){
         for (int i = 0; i< orderList.size()-1; i++){
             int minIndex = i;
@@ -204,36 +180,26 @@ public class FastFoodKitchen {
             orderList.set(possibleIndex, temp);
         }
     }
-    
-//    public void selectionSort() { //weird method!
-//
-//        for (int j = 0; j < orderList.size() - 1; j++) {
-//            int minIndex = j;
-//            for (int k = j + 1; k < orderList.size(); k++) {
-//
-//                 if (orderList.get(minIndex).getTotalBurgers() > orderList.get(j).getTotalBurgers()){
-//                    minIndex = k;
-//                }
-//            }
-//            BurgerOrder temp = orderList.get(j);
-//            orderList.set(j, orderList.get(minIndex));
-//            orderList.set(minIndex, temp);
-//
-//        }
-//    }
 
     public void generateEndOfDayReport() {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("./CanvasAssignments/Projects/Project_2/endOfDayReport.txt"));
-            
+
             writer.write("End of Day Report\n");
             writer.write("====================\n\n");
-            
+
+            writer.write("Order Log:\n");
+            writer.write("====================\n");
+            for (String logEntry : orderLog) {
+                writer.write(logEntry + "\n");
+            }
+            writer.write("\n");
+
             int totalHamburgers = 0;
             int totalCheeseburgers = 0;
             int totalVeggieburgers = 0;
             int totalSodas = 0;
-            
+
             for (BurgerOrder order : orderList) {
                 writer.write("Order ID: " + order.getOrderNum() + "\n");
                 writer.write("Hamburgers: " + order.getNumHamburgers() + "\n");
@@ -241,18 +207,18 @@ public class FastFoodKitchen {
                 writer.write("Veggieburgers: " + order.getNumVeggieburgers() + "\n");
                 writer.write("Sodas: " + order.getNumSodas() + "\n");
                 writer.write("Status: " + (isOrderDone(order.getOrderNum()) ? "Completed" : "Pending") + "\n\n");
-                
+
                 totalHamburgers += order.getNumHamburgers();
                 totalCheeseburgers += order.getNumCheeseburgers();
                 totalVeggieburgers += order.getNumVeggieburgers();
                 totalSodas += order.getNumSodas();
             }
-            
+
             writer.write("Total Hamburgers Sold: " + totalHamburgers + "\n");
             writer.write("Total Cheeseburgers Sold: " + totalCheeseburgers + "\n");
             writer.write("Total Veggieburgers Sold: " + totalVeggieburgers + "\n");
             writer.write("Total Sodas Sold: " + totalSodas + "\n");
-            
+
             writer.close();
         } catch (FileNotFoundException e) {
             System.out.println("The specified file was not found.");
@@ -264,10 +230,9 @@ public class FastFoodKitchen {
     public void generateUpdatedOrdersFile() {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("./CanvasAssignments/Projects/Project_2/burgerOrders2.csv"));
-            
-            // Writing the header
+
             writer.write("orderID,numHamburgers,numCheeseburgers,numVeggieburgers,numSodas,toGo\n");
-            
+
             for (BurgerOrder order : orderList) {
                 if (!isOrderDone(order.getOrderNum())) {
                     writer.write(order.getOrderNum() + "," + order.getNumHamburgers() + "," + 
@@ -275,7 +240,7 @@ public class FastFoodKitchen {
                                  order.getNumSodas() + "," + order.isToGo() + "\n");
                 }
             }
-            
+
             writer.close();
         } catch (FileNotFoundException e) {
             System.out.println("The specified file was not found.");
